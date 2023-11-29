@@ -1,12 +1,17 @@
 import './App.css'
+import TotalBalance from './components/TotalBalance'
+import BalanceOfExpense from './components/BalanceOfExpenses'
 
 function App() {
   
   return (
     
-      
-        
-      <h1>Sprint 8 : Inprocode</h1>
+<div>
+
+<BalanceOfExpense />
+<TotalBalance />
+
+</div>
       
     
   )
