@@ -1,16 +1,32 @@
-import { configureStore} from "@reduxjs/toolkit";
+import {AnyAction,configureStore} from "@reduxjs/toolkit";
+import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 
-import expensesTodayReducer from "./slices/expensesTodaySlices";
-import graphExpensesReducer from "./slices/graphExpensesSlices";
-import totalBalanceReducer from "./slices/totalBalanceSlices";
-import variationYesterdayVsTodayReducer from "./slices/variationYesterdayVsTodaySlices";
+import expensesTodayReducer, {ExpensesTodayState} from "./slices/expensesTodaySlices";
+import graphExpensesReducer, {GraphExpensesState} from "./slices/graphExpensesSlices.ts";
+import totalBalanceReducer,{TotalBalanceState} from "./slices/totalBalanceSlices";
+import variationYesterdayVsTodayReducer, {VariationYesterdayVsToday} from "./slices/variationYesterdayVsTodaySlices";
+import currencyReducer, {CurrencyState} from "./slices/currencySlices";
+import weekNumberReducer,{WeeknumberState} from "./slices/weekNumberSlices";
 
 
-export const store = configureStore({
+
+export const store:ToolkitStore<Store, AnyAction> = configureStore({
   reducer: {
     expensesToday: expensesTodayReducer,
     graphExpenses: graphExpensesReducer,
     totalBalance: totalBalanceReducer,
     variationYesterdayVsToday: variationYesterdayVsTodayReducer,
+    currency : currencyReducer,
+    weekNumber : weekNumberReducer,
   },
 });
+export default store; 
+
+export interface Store {
+  totalBalance: TotalBalanceState; 
+  currency: CurrencyState;
+  weekNumber: WeeknumberState;
+  expensesToday: ExpensesTodayState;
+  graphExpenses: GraphExpensesState;
+  variationYesterdayVsToday: VariationYesterdayVsToday;
+}

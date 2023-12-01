@@ -1,13 +1,16 @@
 import DataGraph from "./GraphExpenses";
 import ExpensesToday from "./ExpensesToday";
-import VariationYesterdayVsToday from "./variationYesterdayVsToday";
+import VariationYesterdayVsToday from "./VariationYesterdayVsToday";
 const BalanceOfExpense = () => {
   return (
     <div>
-      <h1>Balance Of Expenses</h1>
+      <h1>Expenses- Last Week</h1>
       <DataGraph />
+      <div className="graph-line"></div>
+      <footer>
       <ExpensesToday />
       <VariationYesterdayVsToday />
+      </footer>
     </div>
   );
 };

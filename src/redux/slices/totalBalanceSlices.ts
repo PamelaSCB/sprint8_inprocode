@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: InitialState = {
-    totalBalance: null,
+const initialState: TotalBalanceState = {
+    totalBalance: 0,
 };
 
 export const totalBalanceSlice = createSlice({
@@ -20,8 +20,9 @@ export const totalBalanceSlice = createSlice({
 export const {changeTotalBalance} = totalBalanceSlice.actions;
 export default totalBalanceSlice.reducer;
 
+//Interfaces 
 
-interface InitialState {
-  totalBalance: number | null;
+ export interface TotalBalanceState {
+  totalBalance: number;
 }
 
