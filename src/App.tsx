@@ -1,7 +1,7 @@
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import BalanceOfExpense from "./components/BalanceOfExpenses";
+import BalanceOfExpense from "./components/BalanceOfExpenses/BalanceOfExpenses";
 import TotalBalance from "./components/TotalBalance/TotalBalance";
 import { changeWeekNumber } from "./redux/slices/weekNumberSlices";
 import { addGraphExpenses } from "./redux/slices/graphExpensesSlices";
