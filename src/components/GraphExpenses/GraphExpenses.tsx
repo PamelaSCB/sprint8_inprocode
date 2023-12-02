@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Store } from "../redux/store";
+import { Store } from "../../redux/store";
 
 import { Bar } from "react-chartjs-2";
 import {
@@ -36,8 +36,17 @@ function DataGraph(): JSX.Element {
         display: true,
       },
     },
+    scales: {
+      x: {
+        ticks: { color: "#797070" },
+      },
+      y: {
+       min:0,
+       max:700
+      },
+    },
   };
-  const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const labels = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const expenses = [
     graphExpenses.monday,
     graphExpenses.tuesday,

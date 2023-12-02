@@ -5,8 +5,13 @@ export const VariationStyled = styled.div`
   flex-direction: column;
   align-items: flex-end;
 
+  span {
+    font-size: 1.2rem;
+  }
+
   p {
-    margin: 1rem 0 0 0;
-    font-size: 1rem;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+    
   }
 `;

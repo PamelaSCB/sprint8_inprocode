@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState: VariationYesterdayVsToday = { VariationYesterdayVsTodaySlice: null, 
+const initialState: VariationYesterdayVsTodayState = {
+   variationYesterdayVsToday: 0, 
+  yesterdayExpenses: 0,
  };
 
 export const variationYesterdayVsTodaySlice = createSlice({
@@ -8,16 +10,20 @@ export const variationYesterdayVsTodaySlice = createSlice({
   initialState,
   reducers: {
     changeVariation: (state, action) => {
-      state.VariationYesterdayVsTodaySlice = action.payload;
+      state.variationYesterdayVsToday = action.payload;
+    },
+    changeExpenses: (state, action) => {
+      state.yesterdayExpenses = action.payload;
     },
   },
 });
 
-export const { changeVariation } = variationYesterdayVsTodaySlice.actions;
+export const { changeVariation, changeExpenses } = variationYesterdayVsTodaySlice.actions;
 export default variationYesterdayVsTodaySlice.reducer;
 
-//Interfaces 
 
-export interface VariationYesterdayVsToday {
-  VariationYesterdayVsTodaySlice: number | null;
+export interface VariationYesterdayVsTodayState {
+  yesterdayExpenses: number | null;
+  variationYesterdayVsToday: number | null;
+
 }   

@@ -1,4 +1,4 @@
-import DataGraph from "../GraphExpenses";
+import DataGraph from "../GraphExpenses/GraphExpenses";
 import ExpensesToday from "../ExpensesToday/ExpensesToday";
 import VariationYesterdayVsToday from "../VariationYesterdayVsToday/VariationYesterdayVsToday";
 import { BalanceOfExpensesStyled } from "./BalanceOfExpensesStyled";
