@@ -7,3 +7,4 @@ Implementar graficas en un proyecto con Chart.js.
 Implementar el multiidioma. 
 Testing en Jest.
 Auditorias Automáticas con SonarCloud. 
+-Deployed en Vercel : https://sprint8-inprocode.vercel.app/
