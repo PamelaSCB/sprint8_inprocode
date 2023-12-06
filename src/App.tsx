@@ -1,7 +1,7 @@
 import "./App.css";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { Suspense } from "react";
+import { useEffect, Suspense } from "react";
+
 
 import BalanceOfExpense from "./components/BalanceOfExpenses/BalanceOfExpenses";
 import TotalBalance from "./components/TotalBalance/TotalBalance";

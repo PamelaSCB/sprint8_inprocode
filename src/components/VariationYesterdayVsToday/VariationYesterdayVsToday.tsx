@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {useTranslation} from "react-i18next";
 
@@ -9,7 +9,9 @@ import {
 import { Store } from "../../redux/store";
 import { VariationStyled } from "./VariationStyled";
 
-const VariationYesterdayVsToday: React.FC = () => {
+
+function VariationYesterdayVsToday(): JSX.Element {
+
 
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -54,12 +56,16 @@ const VariationYesterdayVsToday: React.FC = () => {
   }, [dayNumber]);
 
   useEffect(() => {
+    if (yesterdayExpenses !== null) {
     dispatch(
       changeVariation(
-        parseFloat(((expensesToday * 100) / yesterdayExpenses - 100).toFixed(2))
-      )
+        parseFloat(
+          ((expensesToday * 100) / yesterdayExpenses - 100).toFixed(2),
+      ),
+    ),
     );
-  }, [expensesToday, yesterdayExpenses]);
+  }
+  }, [expensesToday]);
 
   return (
     <VariationStyled>
@@ -69,7 +75,7 @@ const VariationYesterdayVsToday: React.FC = () => {
             ? t("main.compare")
             : variationYesterdayVsToday
               ? `${variationYesterdayVsToday}%`
-              : ""}
+              : "0%"}
         </strong>
       </p>
       <p>
