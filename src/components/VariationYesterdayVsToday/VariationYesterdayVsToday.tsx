@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {useTranslation} from "react-i18next";
 
 import {
   changeVariation,
@@ -8,9 +9,10 @@ import {
 import { Store } from "../../redux/store";
 import { VariationStyled } from "./VariationStyled";
 
-function VariationYesterdayVsToday(): JSX.Element {
+const VariationYesterdayVsToday: React.FC = () => {
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const graphExpenses = useSelector((state: Store) => state.graphExpenses);
 
@@ -64,14 +66,14 @@ function VariationYesterdayVsToday(): JSX.Element {
       <p>
         <strong>
           {dayNumber === 0
-            ? "Check previous week"
+            ? t("main.compare")
             : variationYesterdayVsToday
-            ? `${variationYesterdayVsToday}%`
-            : ""}
+              ? `${variationYesterdayVsToday}%`
+              : ""}
         </strong>
       </p>
       <p>
-        <strong>respect yesterday</strong>
+        <strong> {t("main.previousWeek") }</strong>
       </p>
     </VariationStyled>
   );

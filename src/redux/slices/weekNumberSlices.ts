@@ -1,5 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+export interface WeeknumberState {
+  weekNumber: number;
+}
+
 const initialState:WeeknumberState={
     weekNumber: 0,
 };
@@ -18,6 +22,3 @@ export const {changeWeekNumber} = weekNumberSlice.actions;
 
 export default weekNumberSlice.reducer;
 
-export interface WeeknumberState {
-  weekNumber: number;
-}

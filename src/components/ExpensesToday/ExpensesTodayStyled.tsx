@@ -14,6 +14,14 @@ export const ExpensesTodayStyled = styled.div`
     font-size: 1.5rem;
   }
 
+  .today_text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
   .day-browser {
     display: flex;
     justify-content: row;

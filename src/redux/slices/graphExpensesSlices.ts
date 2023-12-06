@@ -1,5 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface GraphExpensesState {
+  monday: number;
+  tuesday: number;
+  wednesday: number;
+  thursday: number;
+  friday: number;
+  saturday: number;
+  sunday: number;
+}
+
 const initialState:GraphExpensesState = {
     monday: 0,
     tuesday: 0,
@@ -33,12 +43,3 @@ export const { addGraphExpenses } = graphExpensesSlice.actions;
 export default graphExpensesSlice.reducer;
 
 
-export interface GraphExpensesState {
-  monday: number;
-  tuesday: number;
-  wednesday: number;
-  thursday: number;
-  friday: number;
-  saturday: number;
-  sunday: number;
-}

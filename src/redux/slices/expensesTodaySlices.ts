@@ -1,5 +1,11 @@
 import { createSlice} from "@reduxjs/toolkit";
 
+export interface ExpensesTodayState {
+  expensesToday: number;
+  today: string;
+  dayNumber: number;
+}
+
 const initialState: ExpensesTodayState = {
   expensesToday:0,
   today:"monday",
@@ -27,10 +33,3 @@ export const { changeExpensesToday, changeDayNumber, changeToday } = expensesTod
 
 export default expensesTodaySlice.reducer;
 
-// Interfaces 
-
-export interface ExpensesTodayState {
-  expensesToday: number;
-  today: string;
-  dayNumber: number;
-}

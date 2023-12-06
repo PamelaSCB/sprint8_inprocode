@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export interface VariationYesterdayVsTodayState {
+  yesterdayExpenses: number | null;
+  variationYesterdayVsToday: number | null;
+
+} 
+
 const initialState: VariationYesterdayVsTodayState = {
    variationYesterdayVsToday: 0, 
   yesterdayExpenses: 0,
@@ -22,8 +28,4 @@ export const { changeVariation, changeExpenses } = variationYesterdayVsTodaySlic
 export default variationYesterdayVsTodaySlice.reducer;
 
 
-export interface VariationYesterdayVsTodayState {
-  yesterdayExpenses: number | null;
-  variationYesterdayVsToday: number | null;
-
-}   
+  

@@ -1,16 +1,18 @@
 import "./App.css";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { Suspense } from "react";
 
 import BalanceOfExpense from "./components/BalanceOfExpenses/BalanceOfExpenses";
 import TotalBalance from "./components/TotalBalance/TotalBalance";
+import TranslationBottoms from "./components/TranslationBottoms/TranslationBottoms";
 
 import { changeWeekNumber } from "./redux/slices/weekNumberSlices";
 import { addGraphExpenses } from "./redux/slices/graphExpensesSlices";
 import { changeCurrency } from "./redux/slices/currencySlices";
 import { changeExpensesToday } from "./redux/slices/expensesTodaySlices";
 
-export default function App(): JSX.Element {
+function App(): JSX.Element {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,8 +32,17 @@ export default function App(): JSX.Element {
 
   return (
     <div className="app">
+      <TranslationBottoms />
       <TotalBalance />
       <BalanceOfExpense />
     </div>
+  );
+}
+
+export default function AppWithSuspense(): JSX.Element {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <App />
+    </Suspense>
   );
 }

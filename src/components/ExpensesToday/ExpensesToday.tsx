@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Store } from "../../redux/store";
+import { useTranslation } from "react-i18next";
 
 import { ExpensesTodayStyled } from "./ExpensesTodayStyled";
 import {
@@ -11,6 +12,7 @@ import {
 
 function ExpensesToday(): JSX.Element {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const graphExpenses = useSelector((state: Store) => state.graphExpenses);
   const { expensesToday, today, dayNumber } = useSelector(
@@ -64,11 +66,12 @@ function ExpensesToday(): JSX.Element {
       dispatch(changeDayNumber(dayNumber + 1));
     }
   };
+  const todayText = t(`main.week.${today}`);
 
   return (
     <ExpensesTodayStyled>
       <span>
-        <small>Expenses Today</small>
+        <small>{t("main.expensesToday")}</small>
       </span>
       <p>
         <strong>
@@ -79,13 +82,14 @@ function ExpensesToday(): JSX.Element {
       <div className="day-browser">
         <button onClick={() => handleClick("previous")}>
           <img
-            src="/src/assets/img/arrow-sm-left-svgrepo-com.svg"
+            src="/src/assets/img/arrowLeft.svg"
             alt="left-arrow"
           ></img>
         </button>
+        <p className="today_text">{todayText}</p>
         <button onClick={() => handleClick("next")}>
           <img
-            src="/src/assets/img/arrow-sm-right-svgrepo-com.svg"
+            src="/src/assets/img/arrowRight.svg"
             alt="right-arrow"
           ></img>
         </button>

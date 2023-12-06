@@ -1,0 +1,19 @@
+{
+    "main":{
+        "totalBalance":"Balance total",  
+        "expensesLastWeek": "Gastos de la semana pasada",
+        "expensesToday":"Gastos de hoy",
+        "previousWeek": "Consulta la semana anterior",
+        "compare": "respecto ayer",
+        "week":{
+            "monday": "Lunes",
+            "tuesday": "Martes",
+            "wednesday": "Miercoles",
+            "thursday": "Jueves",
+            "friday": "Viernes",
+            "saturday": "Sabado",
+            "sunday": "Domingo"
+        } 
+        
+        }
+}

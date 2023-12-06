@@ -1,14 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Store } from "../../redux/store";
+
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 import { changeTotalBalance } from "../../redux/slices/totalBalanceSlices";
-import {TotalBalanceStyled} from "./TotalBalanceStyled";
+import { TotalBalanceStyled } from "./TotalBalanceStyled";
 
 function TotalBalance(): JSX.Element {
   const dispatch = useDispatch();
-  const graphExpenses = useSelector((state: Store) => state.graphExpenses);
-  const totalBalance = useSelector((state: Store) => state.totalBalance);
-  const currency = useSelector((state: Store) => state.currency);
+  const { t } = useTranslation();
+
+  const selectGraphExpenses = (state: Store) => state.graphExpenses;
+  const selectTotalBalance = (state: Store) => state.totalBalance;
+  const selectCurrency = (state: Store) => state.currency;
+
+  const graphExpenses = useSelector(selectGraphExpenses);
+  const totalBalance = useSelector(selectTotalBalance);
+  const currency = useSelector(selectCurrency);
 
   useEffect(() => {
     const total: number =
@@ -21,33 +30,22 @@ function TotalBalance(): JSX.Element {
       graphExpenses.sunday;
 
     dispatch(changeTotalBalance(total));
-  }, [graphExpenses]);
+  }, [graphExpenses, changeTotalBalance]);
 
   return (
     <TotalBalanceStyled>
-    <div className="totalBalance">
-      <span>
-        <small>Total Balance</small>
-      </span>
-      <p>
-        <strong>
-          {totalBalance.totalBalance} {currency.currency}
-        </strong>
-      </p>
-      <div className="navigation-arrows">
-        <img
-          src="/src/assets/img/arrow-sm-left-svgrepo-com.svg"
-          alt="left-arrow"
-        />
-        <img
-          src="/src/assets/img/arrow-sm-right-svgrepo-com.svg"
-          alt="right-arrow"
-        />
+      <div className="totalBalance">
+        <span>
+          <small>{t("main.totalBalance")}</small>
+        </span>
+        <p>
+          <strong>
+            {totalBalance.totalBalance} {currency.currency}
+          </strong>
+        </p>
       </div>
-    </div>
     </TotalBalanceStyled>
   );
 }
 
 export default TotalBalance;
-

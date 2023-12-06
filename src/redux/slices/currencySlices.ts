@@ -1,5 +1,9 @@
 import {createSlice} from '@reduxjs/toolkit';
 
+export interface CurrencyState {
+  currency: string;
+}
+
 const initialState:CurrencyState = {
     currency: '',
 };
@@ -17,6 +21,3 @@ export const {changeCurrency} = currencySlice.actions;
 
 export default currencySlice.reducer;
 
-export interface CurrencyState {
-  currency: string;
-}
