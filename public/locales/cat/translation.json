@@ -3,16 +3,16 @@
         "totalBalance":"Balanç total", 
         "expensesLastWeek": "Despeses-Última setmana",
         "expensesToday":"Despeses avui",
-        "previousWeek": "Consulta la setmana anterior",
+        "previousWeek": "Setmana anterior",
         "compare": "respecte a ahir",
         "week":{
-            "monday": "Dilluns",
-            "tuesday": "Dimarts",
-            "wednesday": "Dimecres",
-            "thursday": "Dijous",
-            "friday": "Divendres",
-            "saturday": "Dissabte",
-            "sunday": "Diumenge"
+            "monday": "Dl",
+            "tuesday": "Dt",
+            "wednesday": "Dc",
+            "thursday": "Dj",
+            "friday": "Dv",
+            "saturday": "Ds",
+            "sunday": "Dg"
         } 
        
         }

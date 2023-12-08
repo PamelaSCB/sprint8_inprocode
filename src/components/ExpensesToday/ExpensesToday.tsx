@@ -24,41 +24,22 @@ function ExpensesToday(): JSX.Element {
     dispatch(changeToday(Object.keys(graphExpenses)[dayNumber]));
   }, [dayNumber]);
 
+  const dayMapping: Record< string,number > = {
+    monday: graphExpenses.monday,
+    tuesday: graphExpenses.tuesday,
+    wednesday: graphExpenses.wednesday,
+    thursday: graphExpenses.thursday,
+    friday: graphExpenses.friday,
+    saturday: graphExpenses.saturday,
+    sunday: graphExpenses.sunday,
+  };
+  
   useEffect(() => {
-    switch (today) {
-      case "monday":
-        dispatch(changeExpensesToday(graphExpenses.monday));
-        break;
-
-      case "tuesday":
-        dispatch(changeExpensesToday(graphExpenses.tuesday));
-        break;
-
-      case "wednesday":
-        dispatch(changeExpensesToday(graphExpenses.wednesday));
-        break;
-
-      case "thursday":
-        dispatch(changeExpensesToday(graphExpenses.thursday));
-        break;
-
-      case "friday":
-        dispatch(changeExpensesToday(graphExpenses.friday));
-        break;
-
-      case "saturday":
-        dispatch(changeExpensesToday(graphExpenses.saturday));
-        break;
-
-      case "sunday":
-        dispatch(changeExpensesToday(graphExpenses.sunday));
-        break;
-
-      default:
-        break;
+    if (today in dayMapping) {
+      dispatch(changeExpensesToday(dayMapping[today]));
     }
   }, [dayNumber, today]);
-
+  
   const handleClick = (browse: string) => {
     if (browse === "previous" && dayNumber > 0) {
       dispatch(changeDayNumber(dayNumber - 1));
@@ -82,14 +63,14 @@ function ExpensesToday(): JSX.Element {
       <div className="day-browser">
         <button onClick={() => handleClick("previous")}>
           <img
-            src="/src/assets/img/arrowLeft.svg"
+            src="/src/assets/img/arrow-sm-left-svgrepo-com.svg"
             alt="left-arrow"
           ></img>
         </button>
         <p className="today_text">{todayText}</p>
         <button onClick={() => handleClick("next")}>
           <img
-            src="/src/assets/img/arrowRight.svg"
+            src="/src/assets/img/arrow-sm-right-svgrepo-com.svg"
             alt="right-arrow"
           ></img>
         </button>
